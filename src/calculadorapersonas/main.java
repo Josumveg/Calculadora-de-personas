@@ -275,36 +275,41 @@ public class main extends Application{
          * se guardan en un objeto de la clase Persona. 
          */
         try {
-            if (contador.cantidad == 0) {
-                persona1 = new Persona(entrynombre.getText(), Integer.parseInt(entryedad.getText()), listaprovincia.getValue());
-                listapersona1.getItems().add(persona1.nombre);
-                listapersona2.getItems().add(persona1.nombre);
-                contador.cantidad++;
-            }
-            else if (contador.cantidad == 1) {
-                persona2 = new Persona(entrynombre.getText(), Integer.parseInt(entryedad.getText()), listaprovincia.getValue());
-                listapersona1.getItems().add(persona2.nombre);
-                listapersona2.getItems().add(persona2.nombre);
-                contador.cantidad++;
-            }
-            else if (contador.cantidad == 2) {
-                persona3 = new Persona(entrynombre.getText(), Integer.parseInt(entryedad.getText()), listaprovincia.getValue());
-                listapersona1.getItems().add(persona3.nombre);
-                listapersona2.getItems().add(persona3.nombre);
-                contador.cantidad++;
-            }
-            else if (contador.cantidad == 3) {
-                persona4 = new Persona(entrynombre.getText(), Integer.parseInt(entryedad.getText()), listaprovincia.getValue());
-                listapersona1.getItems().add(persona4.nombre);
-                listapersona2.getItems().add(persona4.nombre);
-                contador.cantidad++;
+            if (Integer.parseInt(entryedad.getText()) > 0){
+                if (contador.cantidad == 0) {
+                    persona1 = new Persona(entrynombre.getText(), Integer.parseInt(entryedad.getText()), listaprovincia.getValue());
+                    listapersona1.getItems().add(persona1.nombre);
+                    listapersona2.getItems().add(persona1.nombre);
+                    contador.cantidad++;
+                }
+                else if (contador.cantidad == 1) {
+                    persona2 = new Persona(entrynombre.getText(), Integer.parseInt(entryedad.getText()), listaprovincia.getValue());
+                    listapersona1.getItems().add(persona2.nombre);
+                    listapersona2.getItems().add(persona2.nombre);
+                    contador.cantidad++;
+                }
+                else if (contador.cantidad == 2) {
+                    persona3 = new Persona(entrynombre.getText(), Integer.parseInt(entryedad.getText()), listaprovincia.getValue());
+                    listapersona1.getItems().add(persona3.nombre);
+                    listapersona2.getItems().add(persona3.nombre);
+                    contador.cantidad++;
+                }
+                else if (contador.cantidad == 3) {
+                    persona4 = new Persona(entrynombre.getText(), Integer.parseInt(entryedad.getText()), listaprovincia.getValue());
+                    listapersona1.getItems().add(persona4.nombre);
+                    listapersona2.getItems().add(persona4.nombre);
+                    contador.cantidad++;
+                }
+                else {
+                    labelerror.setText("Se ha llegado a la cantidad maxima de personas");
+                }
             }
             else {
-                labelerror.setText("Se ha llegado a la cantidad maxima de personas");
+                labelerror.setText("La edad no puede ser 0 o negativa");
             }
         }
         catch(Exception except) {
-            labelerror.setText("Llenar todos los espacios antes de agregar persona");
+            labelerror.setText("La edad debe ser un numero entero");
         }
         });
         
